@@ -1,3 +1,11 @@
+/*Realizado por:
+ Sebastian Cortes Briceño
+ Andres Sebastian Urrego Amaya
+ Julian Esteban Rincon Rodriguez
+ Mariana Ruge Vargas
+*/
+
+
 //Importar librerias
 #include <stdio.h> //define constantes, macros, tipos y declara funciones de entrada y salida de secuencia.
 #include <stdlib.h> //Gestiòn de la memoria dinamica en C
