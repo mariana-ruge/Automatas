@@ -50,3 +50,4 @@ o   δ(qi1, ai) = qi para cada i. Si qn 2 F diremos que la entrada w = a1a2    a
 **Nos referimos a la fuente de esta secuencia como el flujo de entrada conforme llega cada símbolo del flujo de entrada, nuestro proceso de reconocimiento implica cambiar de un estado, tomando de entre una cantidad finita de ellos, a otro, o bien permanecer en el estado actual.  El nuevo proceso dependerá únicamente del estado actual y del símbolo del que se recibe.****
 
 
+# Automatas
