@@ -1,0 +1,2 @@
+Esto es una prueba de la lectura del archivo en C
+Se supone que deben aparecer estas lineas
