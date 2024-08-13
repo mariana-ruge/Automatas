@@ -3,8 +3,6 @@
 **Realizado por: Sebastian Cortes Briceño, Andres Sebastian Urrego Amaya, Julian Esteban Rincon Rodriguez, Mariana Ruge Vargas.**
 
 
-#Uso de este proyecto
-
 ## Requisitos
 
 1. Tener un sistema operativo basado en el Kernel de Linux .
