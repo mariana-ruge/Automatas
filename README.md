@@ -1,54 +1,53 @@
-Realizado por: Sebastian Cortes Briceño, Andres Sebastian Urrego Amaya, Julian Esteban Rincon Rodriguez, Mariana Ruge Vargas.
+# Automatas: Implementacion de un AFD en C
 
-# Automatas
+**Realizado por: Sebastian Cortes Briceño, Andres Sebastian Urrego Amaya, Julian Esteban Rincon Rodriguez, Mariana Ruge Vargas.**
 
-¿Que es un automata? Es una maquina que funciona por si misma y esta diseñada para realizar tareas especificas.
 
-## Automatas Finitos Deterministas
-Estos automatas se limitaran a aceptar o no una determinada cadena para recibir en la entrada, por lo tanto podemos que su salida solo tendra dos valores posibles a aceptar o no aceptar la entrada. El término “autómata finito” hace referencia a la variedad determinista.
+#Uso de este proyecto
 
-*Formalmente, un autómata finito determinista es una quíntupla (Q, Σ, δ, q 0, F), donde:*
+## Requisitos
 
- Q: conjunto finito  no vacio de estados.
+1. Tener un sistema operativo basado en el Kernel de Linux .
+2. Asegurate de tener C instalado en tu distribucion de Linux, puedes verificarlo ejecutando en tu terminal el siguiente comando:
+`gcc -- version`
+Esto deberia mostrarte **la version del compilador de C que corre en tu maquina**
+En caso de no tener el compilador, por favor, ejecuta en la terminal:
+`sudo apt install gcc`
+Una vez completada la instalacion, verifica nuevamente la version de C.
 
-  Σ: alfabeto de entrada. 
+* Este proyecto fue realizado con la siguiente version de C.
+`gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+`
 
-δ: Q x Σ  Q, es la función total de transición. 
+## Para usar este proyecto localmente
+A continuacion, deberas clonar localmente este proyecto en tu entorno de trabajo.
 
-q 0 ∈ Q: estado inicial de autómata.
+1. Clonar el proyecto localmente: en tu terminal ejecuta el siguiente comando de git.
+`git clone  https://github.com/mariana-ruge/Automatas.git`
+2. Una vez clonado el proyecto, navega hasta la ruta del directorio donde se clono localmente.
+`cd Automatas`
+3. Compila el codigo fuente en tu terminal.
+`gcc automatas.c`
 
- F ⊆ Q: conjunto de estados finales.
+### Uso de archivo del programa
+En el proyecto encontraras un archivo llamado "config.txt", eso es porque el programa requiere un archivo de configuracion que  define los parametros del DFA.
+Por favor revisar que el archivo se encuentre en tu repositorio local.
 
-**Procesamientos de las cadenas de un AFD**
+El programa para correr solicita como parametros 2 archivos de entrada.
+1. El archivo de configuracion.
+2. El archivo de entrada (input), lo encuentras en el proyecto como "input.txt".
 
-Lo primero que tenemos que entender sobre un AFD es cómo decide si “aceptar” o no una secuencia de símbolos de entrada. El “lenguaje” del AFD es el conjunto de todas las cadenas que acepta. Supongamos que a1a2 · · ·an es una secuencia de símbolos de entrada. Comenzaremos con
+Para hacer una correctar ejecucion del programa se debe escribir en la terminal.
+ 1. Navega hasta tu directorio local con el proyecto que has descargado.
 
-o   Sea A AFD y w = a1a2…. an una cadena de entrada para A.
+ 2. Compilar el codigo con el siguiente comando
+`gcc automatas.c`
 
-o   Iniciamos con A en su estado q0, δ(q0, a1) = q1.
+3. Ejecutar el programa con el ejecutable que dejo el compilador de C
+`./automatas`
 
-o   Sea A AFD y w = a1a2… an una cadena de entrada para A.
+En la terminal se deberia solicitar primero el archivo de configuracion (config.txt)
+y luego la cadena a validar con respecto al archivo.
 
-o   Iniciamos con A en su estado q0, δ(q0, a1) = q1.
-
-o   Procesamos a2, δ(q1, a2) = q2 y continuamos encontrando q3, q4, . . . , qn.
-
-o   Sea A AFD y w = a1a2 … an una cadena de entrada para A.
-
-o   Iniciamos con A en su estado q0, δ(q0, a1) = q1.
-
-o   Procesamos a2, δ(q1, a2) = q2 y continuamos encontrando q3, q4, . . . , qn.
-
-o   δ(qi1, ai) = qi para cada i
-
-o   Sea A AFD y w = a1a2    an una cadena de entrada para A.
-
-o   Iniciamos con A en su estado q0, δ(q0, a1) = q1.
-
-o   Procesamos a2, δ(q1, a2) = q2 y continuamos encontrando q3, q4, . . . , qn.
-
-o   δ(qi1, ai) = qi para cada i. Si qn 2 F diremos que la entrada w = a1a2    an es aceptada sino es rechazada
-
-**Nos referimos a la fuente de esta secuencia como el flujo de entrada conforme llega cada símbolo del flujo de entrada, nuestro proceso de reconocimiento implica cambiar de un estado, tomando de entre una cantidad finita de ellos, a otro, o bien permanecer en el estado actual.  El nuevo proceso dependerá únicamente del estado actual y del símbolo del que se recibe.****
-
+Por ultimo, en la terminal se debera mostrar si la cadena fue aceptada o rechazada.
 
