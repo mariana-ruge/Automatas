@@ -37,9 +37,9 @@ El programa para correr solicita como parametros 2 archivos de entrada.
 1. El archivo de configuracion.
 2. El archivo de entrada (input), lo encuentras en el proyecto como "input.txt".
 
-Para hacer una correctar ejecucion del programa se debe escribir en la terminal.
+Para hacer una correctar ejecucion del programa se debe realizar lo siguiente en la terminal.
  1. Navega hasta tu directorio local con el proyecto que has descargado.
-
+ `cd Automatas`
  2. Compilar el codigo con el siguiente comando
 `gcc automatas.c`
 
