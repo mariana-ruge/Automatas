@@ -43,10 +43,15 @@ int leerConfiguracionDFA(DFA* dfa, FILE* archivo) {
         if (fscanf(archivo, "%d", &dfa->estadosAceptacion[i]) != 1) return 0;
     }
     // Leer la tabla de transiciones
+    //Lectura de las filas
     for (int i = 0; i < dfa->estados; i++) {
+        //Lecy¡tura de las columnas
         for (int j = 0; dfa->simbolos[j] != '\0'; j++) {
+            //Avanzar al siguiente estado
             int siguienteEstado;
+            //verificar si la lectura de un entero desde el archivo fue exitosa y, si no lo fue, devuelve 0 para indicar un error.
             if (fscanf(archivo, "%d", &siguienteEstado) != 1) return 0;
+            //Asignar el siguiente estado a la matriz de transición
             dfa->transicion[i][(int)dfa->simbolos[j]] = siguienteEstado;
         }
     }
@@ -75,6 +80,7 @@ int procesarCadena(DFA* dfa, const char* entrada) {
     }
 
     // Verificar si el estado final es de aceptación
+    
     for (int i = 0; i < dfa->numEstadosAceptacion; i++) {
         if (estadoActual == dfa->estadosAceptacion[i]) return 1;
     }
@@ -88,15 +94,19 @@ int main() {
     // Declarar el archivo y la entrada
     FILE *archivoConfig = NULL;
     char archivoNombre[100];
+    //Declarara la entrada
     char entrada[MAX_ENTRADA];
 
     // Solicitar el nombre del archivo de configuración
     printf("Ingrese el nombre del archivo de configuración: ");
+    //Obtener el archivo en local
     fgets(archivoNombre, sizeof(archivoNombre), stdin);
-    archivoNombre[strcspn(archivoNombre, "\n")] = 0; // Eliminar el salto de línea
+    //Asignar a la variable el nombre del archivo
+    archivoNombre[strcspn(archivoNombre, "\n")] = 0; 
 
     // Abrir el archivo de configuración
     archivoConfig = fopen(archivoNombre, "r");
+    //Sino se encontro la ruta del archivo, mostrar un error
     if (!archivoConfig) {
         printf("Error al abrir el archivo de configuración\n");
         return 1;
@@ -104,23 +114,30 @@ int main() {
 
     // Inicializar y configurar el DFA
     inicializarDFA(&dfa);
+    //Sino se hixo la lectura exitosa ni del dfa declarado ni del archivo de configuracion
     if (!leerConfiguracionDFA(&dfa, archivoConfig)) {
+        //Mostrar el error
         printf("Error al leer la configuración del DFA\n");
+        //Cerra el archivo de configuracion
         fclose(archivoConfig);
+        //Retorna 1 como error
         return 1;
     }
     fclose(archivoConfig);
 
     // Solicitar la cadena de entrada
     printf("Ingrese la cadena de entrada: ");
+    //Usar los parametros de la funcion
     fgets(entrada, MAX_ENTRADA, stdin);
     entrada[strcspn(entrada, "\n")] = 0; // Eliminar el salto de línea
 
     // Procesar la cadena y mostrar el resultado
     int resultado = procesarCadena(&dfa, entrada);
+    //Si es 1 se acepta la cadena
     if (resultado == 1) {
         printf("Resultado: La cadena fue aceptada.\n");
     } else if (resultado == 0) {
+        //Si es 0 no esta en el archivo, se rechaza
         printf("Resultado: La cadena fue rechazada.\n");
     }
 
